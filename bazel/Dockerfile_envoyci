@@ -70,7 +70,7 @@ RUN set -eux; \
         ppc64el | ppc64le) ARCH='ppc64le' ;; \
         *) echo "unsupported architecture"; exit 1 ;; \
     esac; \
-    wget -nv -O - https://storage.googleapis.com/golang/go${GO_VERSION}.linux-${ARCH}.tar.gz \
+    wget -nv -O - https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz \
     | tar -C /usr/local -xz
 
 ENV PATH=$PATH:/usr/local/go/bin/:$JAVA_HOME/bin

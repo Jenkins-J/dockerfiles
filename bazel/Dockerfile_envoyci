@@ -31,7 +31,8 @@ RUN groupadd -g ${gid} ${group} && \
     useradd -d "${JENKINS_AGENT_HOME}" -u "${uid}" -g "${gid}" -m -s /bin/bash "${user}"
 
 RUN curl -LO https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/clang+llvm-18.1.8-powerpc64le-linux-rhel-8.8.tar.xz && \
-    tar -xvf clang+llvm-18.1.8-powerpc64le-linux-rhel-8.8.tar.xz
+    tar -xvf clang+llvm-18.1.8-powerpc64le-linux-rhel-8.8.tar.xz && \
+    rm clang+llvm-18.1.8-powerpc64le-linux-rhel-8.8.tar.xz
 
 RUN update-alternatives --install /usr/bin/clang++ clang++ $(pwd)/clang+llvm-18.1.8-powerpc64le-linux-rhel-8.8/bin/clang++ 1000 && \
     update-alternatives --install /usr/bin/clang clang $(pwd)/clang+llvm-18.1.8-powerpc64le-linux-rhel-8.8/bin/clang 1000 && \
